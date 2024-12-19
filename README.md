@@ -16,3 +16,20 @@
   <a href="https://linux.org/"><img src="https://img.shields.io/badge/Linux-FCC624?logo=linux&logoColor=white" alt="Linux"></a>
   <a href="https://www.google.com/intl/en_ca/chromebook/chrome-os/"><img src="https://img.shields.io/badge/chrome%20os-3d89fc?logo=google%20chrome&logoColor=white" alt="ChromeOS"></a>
 </p>
+
+import itertools
+import sys
+import time
+
+spinner = itertools.cycle(['|', '/', '-', '\\'])
+
+def spinning_animation():
+    try:
+        while True:
+            sys.stdout.write('\r' + next(spinner))  # Carriage return to overwrite the last character
+            sys.stdout.flush()
+            time.sleep(0.1)  # Control the speed of the spinner
+    except KeyboardInterrupt:
+        sys.stdout.write('\rDone!    \n')
+
+spinning_animation()
